@@ -3,7 +3,7 @@ const isFilledFilelds = require('./IsFilledFields');
 const isIncorrectFields = require('./isIncorrectFields');
 const isIncorrectToken = require('./isIncorrectToken');
 const isRecipeFound = require('./isRecipeFound');
-const isRequiredFild = require('./IsRequiredField');
+const isRequiredField = require('./IsRequiredField');
 const isTokenFound = require('./isTokenFound');
 
 module.exports = {
@@ -12,6 +12,6 @@ module.exports = {
   isIncorrectFields,
   isIncorrectToken,
   isRecipeFound,
-  isRequiredFild,
+  isRequiredField,
   isTokenFound,
 };
