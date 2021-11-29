@@ -8,7 +8,7 @@ module.exports = async (req, _res, next) => {
 
   const result = users.some((user) => user.email === email);
 
-  if (!email.includes('@' && '.com')) {
+  if (!email.includes('@' || '.com')) {
     return next(isRequiredField());
   }
 
