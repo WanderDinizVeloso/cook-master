@@ -8,7 +8,9 @@ module.exports = async (created) => {
 
   const { ops } = (await create(userWithRole));
 
-  const user = ops[0];
+  const { password, ...userWithoutPassword } = ops[0];
+
+  const user = userWithoutPassword;
 
   return { user };
 };
