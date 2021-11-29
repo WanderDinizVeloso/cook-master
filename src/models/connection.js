@@ -13,7 +13,7 @@ let connection = null;
 
 module.exports = async () => {
   if (!connection) {
-    connection = (await MongoClient.connection(
+    connection = (await MongoClient.connect(
       URL,
       OPTIONS,
     )).db(DB_NAME);
