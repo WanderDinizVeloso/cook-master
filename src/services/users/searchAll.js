@@ -1,7 +1,7 @@
 const { searchAll } = require('../../models')('users');
 
 module.exports = async () => {
-  const products = await searchAll();
+  const users = await searchAll();
 
-  return { products };
+  return { users };
 };
