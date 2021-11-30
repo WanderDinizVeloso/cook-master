@@ -8,7 +8,7 @@ module.exports = (req, _res, next) => {
     return next(isTokenFound());
   }
 
-  const user = verifyToken(authorization) || null;
+  const user = verifyToken(authorization);
 
   if (!user) {
     return next(isIncorrectToken());

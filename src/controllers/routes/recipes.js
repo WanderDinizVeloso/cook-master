@@ -28,6 +28,7 @@ router.post('/',
 
 router.put('/:id',
   wrapper(isValidRecipeId),
+  wrapper(auth),
   wrapper(update));
 
 router.delete('/:id',

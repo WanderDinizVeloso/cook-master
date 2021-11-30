@@ -3,9 +3,13 @@ const { update } = require('../../models')('recipes');
 const searchById = require('./searchById');
 
 module.exports = async (dataRecipe) => {
-  const { id, ...dataRecipeWithoutId } = dataRecipe;
+  const { id, userId, role, ...dataRecipeWithoutId } = dataRecipe;
 
   const recipe = await searchById(id);
+
+  if (recipe.userId !== userId) {
+    return null;
+  }
 
   const newDataRecipe = {
     ...recipe,
