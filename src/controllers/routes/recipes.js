@@ -9,6 +9,7 @@ const {
   remove,
   searchAll,
   searchById,
+  update,
 } = require('../recipes');
 
 const router = express.Router({ mergeParams: true });
@@ -23,6 +24,9 @@ router.post('/',
   wrapper(isValidRecipeFields),
   wrapper(auth),
   wrapper(create));
+
+router.put('/:id',
+  wrapper(update));
 
 router.delete('/:id',
   wrapper(remove));
