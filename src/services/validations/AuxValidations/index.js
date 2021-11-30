@@ -1,5 +1,5 @@
 const isEmailConflict = require('./isEmailConflict');
-const isFilledFilelds = require('./IsFilledFields');
+const isFilledFields = require('./IsFilledFields');
 const isIncorrectFields = require('./isIncorrectFields');
 const isIncorrectToken = require('./isIncorrectToken');
 const isRecipeFound = require('./isRecipeFound');
@@ -8,7 +8,7 @@ const isTokenFound = require('./isTokenFound');
 
 module.exports = {
   isEmailConflict,
-  isFilledFilelds,
+  isFilledFields,
   isIncorrectFields,
   isIncorrectToken,
   isRecipeFound,
