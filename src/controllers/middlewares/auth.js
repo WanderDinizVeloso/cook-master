@@ -1,7 +1,7 @@
 const { verifyToken } = require('../../services/auth');
 const { isIncorrectToken, isTokenFound } = require('../../services/validations/AuxValidations');
 
-module.exports = async (req, _res, next) => {
+module.exports = (req, _res, next) => {
   const { authorization } = req.headers;
 
   if (!authorization) {
