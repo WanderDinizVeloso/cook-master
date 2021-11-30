@@ -7,9 +7,13 @@ const { isValidRecipeFields } = require('../../services/validations');
 const {
   create,
   remove,
+  searchAll,
 } = require('../recipes');
 
 const router = express.Router({ mergeParams: true });
+
+router.get('/',
+  wrapper(searchAll));
 
 router.post('/',
   wrapper(isValidRecipeFields),
