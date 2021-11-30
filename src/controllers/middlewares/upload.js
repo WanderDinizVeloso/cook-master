@@ -1,10 +1,13 @@
 const multer = require('multer');
+const path = require('path');
+
+const destination = path.resolve(__dirname, '../../uploads/');
 
 const storage = multer.diskStorage({
-  destination: (req, file, callback) => {
-    callback(null, 'uploads/');
+  destination: (_req, _file, callback) => {
+    callback(null, destination);
   },
-  filename: (req, file, callback) => {
+  filename: (req, _file, callback) => {
     const { id } = req.params;
 
     callback(null, `${id}.jpeg`);
