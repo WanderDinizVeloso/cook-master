@@ -2,7 +2,7 @@ const express = require('express');
 
 const { wrapper, auth } = require('../middlewares');
 
-const { isValidRecipeFields } = require('../../services/validations');
+const { isValidRecipeFields, isValidRecipeId } = require('../../services/validations');
 
 const {
   create,
@@ -18,6 +18,7 @@ router.get('/',
   wrapper(searchAll));
 
 router.get('/:id',
+  wrapper(isValidRecipeId),
   wrapper(searchById));
 
 router.post('/',
@@ -26,9 +27,11 @@ router.post('/',
   wrapper(create));
 
 router.put('/:id',
+  wrapper(isValidRecipeId),
   wrapper(update));
 
 router.delete('/:id',
+  wrapper(isValidRecipeId),
   wrapper(remove));
 
 module.exports = router;
