@@ -1,12 +1,15 @@
 const { json } = require('body-parser');
 const express = require('express');
-
-require('dotenv').config();
+const path = require('path');
 
 const root = require('../controllers/routes/root');
 const { error } = require('../controllers/middlewares');
 
+require('dotenv').config();
+
 const app = express();
+
+app.use('/images', express.static(path.join(__dirname, '..', 'uploads')));
 
 app.use(json());
 
