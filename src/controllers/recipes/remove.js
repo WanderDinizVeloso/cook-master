@@ -1,7 +1,13 @@
-const { remove } = require('../../models')('recipes');
+const { StatusCodes } = require('http-status-codes'); 
 
-module.exports = async (id) => {
-  const removed = await remove(id);
+const { remove } = require('../../services/recipes');
 
-  return removed;
+module.exports = async (req, res, _next) => {
+  const { id } = req.params;
+
+  const recipe = await remove(id);
+
+  return res
+    .status(StatusCodes.OK)
+    .json(recipe);
 };
