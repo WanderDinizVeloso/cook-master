@@ -1,24 +1,25 @@
 const { update } = require('../../models')('recipes');
 
 const searchById = require('./searchById');
+const userValidate = require('../utils/userValidate');
 
 module.exports = async (dataRecipe) => {
-  const { id, userId, role, ...dataRecipeWithoutId } = dataRecipe;
+  const { id, userId, ...dataRecipeWithoutId } = dataRecipe;
 
-  const recipe = await searchById(id);
+  const validate = await userValidate(id, userId);
 
-  if (recipe.userId !== userId) {
+  if (!validate) {
     return null;
   }
 
   const newDataRecipe = {
-    ...recipe,
+    ...validate.recipe,
     ...dataRecipeWithoutId,
   };
-
+  
   await update(newDataRecipe);
 
   const modifiedRecipe = await searchById(id);
 
-  return modifiedRecipe;
+  return modifiedRecipe;    
 };
