@@ -33,6 +33,7 @@ router.put('/:id',
 
 router.delete('/:id',
   wrapper(isValidRecipeId),
+  wrapper(auth),
   wrapper(remove));
 
 module.exports = router;
