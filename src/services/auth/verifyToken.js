@@ -2,8 +2,8 @@ const { verify } = require('jsonwebtoken');
 
 const API_SECRET = require('./secret');
 
-module.exports = (token) => {
-  const { data: user } = verify(token, API_SECRET);
+module.exports = (token) => {  
+  const result = verify(token, API_SECRET);
 
-  return user;
+  return result;
 };

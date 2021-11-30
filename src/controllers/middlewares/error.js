@@ -5,8 +5,14 @@ module.exports = async (err, _req, res, _next) => {
 
   if (status) {
     return res
-    .status(status)
-    .json({ message });
+      .status(status)
+      .json({ message });
+  }
+
+  if (message === 'jwt malformed') {
+    return res
+      .status(StatusCodes.UNAUTHORIZED)
+      .json({ message });
   }
 
   return res

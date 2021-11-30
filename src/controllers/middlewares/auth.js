@@ -1,5 +1,5 @@
 const { verifyToken } = require('../../services/auth');
-const { isIncorrectToken, isTokenFound } = require('../../services/validations/AuxValidations');
+const { isTokenFound, isIncorrectToken } = require('../../services/validations/AuxValidations');
 
 module.exports = (req, _res, next) => {
   const { authorization } = req.headers;
@@ -8,7 +8,7 @@ module.exports = (req, _res, next) => {
     return next(isTokenFound());
   }
 
-  const user = verifyToken(authorization);
+  const user = verifyToken(authorization) || null;
 
   if (!user) {
     return next(isIncorrectToken());
