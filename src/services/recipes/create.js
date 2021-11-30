@@ -1,7 +1,9 @@
-const { create } = require('../../models');
+const { create } = require('../../models')('recipes');
 
-module.exports = async (recipe) => {
- const { ops } = await create(recipe);
+module.exports = async (dataRecipe) => {
+ const { ops } = await create(dataRecipe);
 
- return ops[0];
+ const recipe = ops[0];
+
+ return { recipe };
 };
