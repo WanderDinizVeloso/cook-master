@@ -6,8 +6,6 @@ module.exports = async (req, res, _next) => {
   const { name, ingredients, preparation } = req.body;
   const { data: { _id: userId } } = req.user;
 
-  console.log(req.user);
-
   const newRecipe = {
     name,
     ingredients,
